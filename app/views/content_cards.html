@@ -1,0 +1,49 @@
+<div class="container">
+      <!-- Example row of columns -->
+   <div class="row">
+        <div ng-repeat="card in cards" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <content-card >
+                <content-card-content>
+                    <a class="content-card-overlay" >
+                        <div class="content-card-button">
+                        <button class="content-card-button1 btn btn-default" ng-click="cardViewController.showDetails(card)" data-toggle="modal" data-target="#myModal"> Show Details </button>
+                        <button class="content-card-button1 btn btn-default" data-toggle="modal" data-target="#alertModal"> Add To Cart </button></div>
+                    </a>
+                    <div class="card-image" style="background-image: url({{card.imageUrl}})">
+                    </div>
+                    <div class="content-card-actions">
+                        <div>
+                            <div> 
+                                <i class="fa fa-mobile card-icon"> </i>
+                                <span class="card-name">{{card.name}} </span>
+                            </div>
+                            <div class="card-description"> {{card.description}} </div>
+                        </div>
+                    </div>
+                </content-card-content>
+            </content-card>
+        </div>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="modal-title">{{cardViewController.currentCard.name}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{cardViewController.currentCard.fullDescription}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="alertModal" role="dialog">
+            <div class="alert alert-info">
+                <strong>Info!</strong> Sorry the add to cart functionality is unavailable at the moment. It will be added soon.
+            </div>
+        </div>
+    </div>
+</div>
